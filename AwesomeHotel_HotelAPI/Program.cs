@@ -1,5 +1,6 @@
 //using Serilog;
 
+using AwesomeHotel_HotelAPI;
 using AwesomeHotel_HotelAPI.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(option => {
     option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection"));
 });
 
+builder.Services.AddAutoMapper(typeof(MappingConfig));    //Auto Mapping
 
 builder.Services.AddControllers(option =>
 {
